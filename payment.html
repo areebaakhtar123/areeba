@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Chocolate Paradise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🍫 Chocolate Paradise</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Payment Information</h2>
+        <form id="payment-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+            </select><br>
+
+            <label for="address">Shipping Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea><br>
+
+            <button type="submit">Submit Payment</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chocolate Paradise. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const address = document.getElementById('address').value;
+
+            // Store data in localStorage (for testing)
+            localStorage.setItem('paymentData', JSON.stringify({
+                name: name,
+                email: email,
+                paymentMethod: paymentMethod,
+                address: address
+            }));
+
+            // Display confirmation message
+            alert('Payment details have been saved!');
+        });
+    </script>
+</body>
+</html>

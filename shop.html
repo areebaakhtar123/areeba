@@ -1,0 +1,316 @@
+
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Chocolate Paradise</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 200px;  /* Fixed width */
+            height: 200px; /* Fixed height */
+            object-fit: cover; /* Maintains aspect ratio without distortion */
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            color: #777;
+            margin: 5px 0;
+        }
+
+        .product-card button {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🍫 Chocolate Paradise</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Our Chocolate Collection</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="images/chocolate1.png" alt="Chocolate Product 1">
+                <h3>Chocolate Product 1</h3>
+                <p>Delicious chocolate.</p>
+                <p>$10</p>
+                <button onclick="addToCart('Chocolate Product 1', 'images/chocolate1.png', 10)">Add to Cart</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="images/chocolate2.png" alt="Chocolate Product 2">
+                <h3>Chocolate Product 2</h3>
+                <p>Yummy chocolate.</p>
+                <p>$12</p>
+                <button onclick="addToCart('Chocolate Product 2', 'images/chocolate2.png', 12)">Add to Cart</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="images/chocolate3.png" alt="Chocolate Product 3">
+                <h3>Chocolate Product 3</h3>
+                <p>Rich dark chocolate.</p>
+                <p>$15</p>
+                <button onclick="addToCart('Chocolate Product 3', 'images/chocolate3.png', 15)">Add to Cart</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="images/chocolate4.png" alt="Chocolate Product 4">
+                <h3>Chocolate Product 4</h3>
+                <p>Milk chocolate with nuts.</p>
+                <p>$20</p>
+                <button onclick="addToCart('Chocolate Product 4', 'images/chocolate4.png', 20)">Add to Cart</button>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="images/chocolate5.png" alt="Chocolate Product 5">
+                <h3>Chocolate Product 5</h3>
+                <p>Sweet caramel chocolate.</p>
+                <p>$18</p>
+                <button onclick="addToCart('Chocolate Product 5', 'images/chocolate5.png', 18)">Add to Cart</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="images/chocolate6.png" alt="Chocolate Product 6">
+                <h3>Chocolate Product 6</h3>
+                <p>Chocolate with almonds.</p>
+                <p>$22</p>
+                <button onclick="addToCart('Chocolate Product 6', 'images/chocolate6.png', 22)">Add to Cart</button>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <img src="images/chocolate7.png" alt="Chocolate Product 7">
+                <h3>Chocolate Product 7</h3>
+                <p>Crunchy chocolate.</p>
+                <p>$14</p>
+                <button onclick="addToCart('Chocolate Product 7', 'images/chocolate7.png', 14)">Add to Cart</button>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <img src="images/chocolate8.png" alt="Chocolate Product 8">
+                <h3>Chocolate Product 8</h3>
+                <p>Caramel and sea salt.</p>
+                <p>$16</p>
+                <button onclick="addToCart('Chocolate Product 8', 'images/chocolate8.png', 16)">Add to Cart</button>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="images/chocolate9.png" alt="Chocolate Product 9">
+                <h3>Chocolate Product 9</h3>
+                <p>Chocolate with hazelnuts.</p>
+                <p>$19</p>
+                <button onclick="addToCart('Chocolate Product 9', 'images/chocolate9.png', 19)">Add to Cart</button>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card">
+                <img src="images/chocolate10.png" alt="Chocolate Product 10">
+                <h3>Chocolate Product 10</h3>
+                <p>Dark chocolate bar.</p>
+                <p>$21</p>
+                <button onclick="addToCart('Chocolate Product 10', 'images/chocolate10.png', 21)">Add to Cart</button>
+            </div>
+            <!-- Product 11 -->
+            <div class="product-card">
+                <img src="images/chocolate11.png" alt="Chocolate Product 11">
+                <h3>Chocolate Product 11</h3>
+                <p>Hazelnut chocolate.</p>
+                <p>$25</p>
+                <button onclick="addToCart('Chocolate Product 11', 'images/chocolate11.png', 25)">Add to Cart</button>
+            </div>
+            <!-- Product 12 -->
+            <div class="product-card">
+                <img src="images/chocolate12.png" alt="Chocolate Product 12">
+                <h3>Chocolate Product 12</h3>
+                <p>Dark chocolate with mint.</p>
+                <p>$30</p>
+                <button onclick="addToCart('Chocolate Product 12', 'images/chocolate12.png', 30)">Add to Cart</button>
+            </div>
+            <!-- Product 13 -->
+            <div class="product-card">
+                <img src="images/chocolate13.png" alt="Chocolate Product 13">
+                <h3>Chocolate Product 13</h3>
+                <p>Coffee flavored chocolate.</p>
+                <p>$28</p>
+                <button onclick="addToCart('Chocolate Product 13', 'images/chocolate13.png', 28)">Add to Cart</button>
+            </div>
+            <!-- Product 14 -->
+            <div class="product-card">
+                <img src="images/chocolate14.png" alt="Chocolate Product 14">
+                <h3>Chocolate Product 14</h3>
+                <p>Gourmet chocolate bar.</p>
+                <p>$35</p>
+                <button onclick="addToCart('Chocolate Product 14', 'images/chocolate14.png', 35)">Add to Cart</button>
+            </div>
+            <!-- Product 15 -->
+            <div class="product-card">
+                <img src="images/chocolate15.png" alt="Chocolate Product 15">
+                <h3>Chocolate Product 15</h3>
+                <p>Chocolate with coconut.</p>
+                <p>$33</p>
+                <button onclick="addToCart('Chocolate Product 15', 'images/chocolate15.png', 33)">Add to Cart</button>
+            </div>
+            <!-- Product 16 -->
+            <div class="product-card">
+                <img src="images/chocolate16.png" alt="Chocolate Product 16">
+                <h3>Chocolate Product 16</h3>
+                <p>White chocolate.</p>
+                <p>$18</p>
+                <button onclick="addToCart('Chocolate Product 16', 'images/chocolate16.png', 18)">Add to Cart</button>
+            </div>
+            <!-- Product 17 -->
+            <div class="product-card">
+                <img src="images/chocolate17.png" alt="Chocolate Product 17">
+                <h3>Chocolate Product 17</h3>
+                <p>Milk chocolate with caramel.</p>
+                <p>$20</p>
+                <button onclick="addToCart('Chocolate Product 17', 'images/chocolate17.png', 20)">Add to Cart</button>
+            </div>
+            <!-- Product 18 -->
+            <div class="product-card">
+                <img src="images/chocolate18.png" alt="Chocolate Product 18">
+                <h3>Chocolate Product 18</h3>
+                <p>Chocolate with peanut butter.</p>
+                <p>$22</p>
+                <button onclick="addToCart('Chocolate Product 18', 'images/chocolate18.png', 22)">Add to Cart</button>
+            </div>
+            <!-- Product 19 -->
+            <div class="product-card">
+                <img src="images/chocolate19.png" alt="Chocolate Product 19">
+                <h3>Chocolate Product 19</h3>
+                <p>Milk chocolate with toffee.</p>
+                <p>$24</p>
+                <button onclick="addToCart('Chocolate Product 19', 'images/chocolate19.png', 24)">Add to Cart</button>
+            </div>
+            <!-- Product 20 -->
+            <div class="product-card">
+                <img src="images/chocolate20.png" alt="Chocolate Product 20">
+                <h3>Chocolate Product 20</h3>
+                <p>Chocolate with fruit mix.</p>
+                <p>$26</p>
+                <button onclick="addToCart('Chocolate Product 20', 'images/chocolate20.png', 26)">Add to Cart</button>
+            </div>
+            <!-- More products can be added similarly up to 30 -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chocolate Paradise | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function addToCart(name, image, price) {
+            // Create the item object
+            let item = {
+                name: name,
+                image: image,
+                price: price
+            };
+
+            // Retrieve the existing cart from localStorage or an empty array if none exists
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the new item to the cart
+            cart.push(item);
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Optional: Show a confirmation message
+            alert(`${name} has been added to your cart.`);
+        }
+    </script>
+</body>
+</html>

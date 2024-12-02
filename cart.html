@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Chocolate Paradise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 10px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .cart-item img {
+            width: 100px;
+            margin-right: 20px;
+        }
+        .cart-item h3, .cart-item p {
+            margin: 0;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .total-price {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .remove-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🍫 Chocolate Paradise</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div id="total-price" class="total-price">
+            <!-- Total price will be displayed here -->
+        </div>
+        <button id="checkout-button" onclick="checkout()" style="display:none;">Proceed to Checkout</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chocolate Paradise. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to display cart items and calculate total price
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsDiv = document.getElementById('cart-items');
+            const totalPriceDiv = document.getElementById('total-price');
+            const checkoutButton = document.getElementById('checkout-button');
+            
+            cartItemsDiv.innerHTML = ''; // Clear the previous cart items
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+                totalPriceDiv.innerHTML = ''; // Hide total price if cart is empty
+                checkoutButton.style.display = 'none'; // Hide checkout button if cart is empty
+            } else {
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+
+                    // Display item image
+                    const itemImage = document.createElement('img');
+                    itemImage.src = item.image;
+                    itemImage.alt = item.name;
+                    itemDiv.appendChild(itemImage);
+
+                    // Display item name
+                    const itemName = document.createElement('h3');
+                    itemName.textContent = item.name;
+                    itemDiv.appendChild(itemName);
+
+                    // Display item price
+                    const itemPrice = document.createElement('p');
+                    itemPrice.textContent = `$${item.price}`;
+                    itemDiv.appendChild(itemPrice);
+
+                    // Add remove button for each item
+                    const removeButton = document.createElement('button');
+                    removeButton.classList.add('remove-btn');
+                    removeButton.textContent = 'Remove';
+                    removeButton.onclick = () => removeItem(index); // Remove item on click
+                    itemDiv.appendChild(removeButton);
+
+                    // Add price to total price
+                    totalPrice += item.price;
+
+                    // Append item to cart
+                    cartItemsDiv.appendChild(itemDiv);
+                });
+
+                // Display total price
+                totalPriceDiv.innerHTML = `Total: $${totalPrice.toFixed(2)}`;
+
+                // Show checkout button
+                checkoutButton.style.display = 'block'; // Make sure the button is visible
+            }
+        }
+
+        // Remove item from cart
+        function removeItem(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Remove item at the specified index
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in localStorage
+            displayCart(); // Re-display the updated cart
+        }
+
+        // Checkout button functionality
+        function checkout() {
+            window.location.href = "payment.html"; // Redirect to payment page
+        }
+
+        // Display the cart when the page loads
+        window.onload = displayCart;
+    </script>
+</body>
+</html>
